@@ -59,6 +59,15 @@ button {
     padding: 0 10px;
 }
 
+.row-col-g15 {
+    margin-top: calc(-1 * 15px);
+}
+
+.row-col-g15 > [class*=col] {
+    margin-top: 15px;
+    padding: 0 15px;
+}
+
 .row-col-g2 {
     margin-top: calc(-1 * 20px);
 }
