@@ -5,14 +5,21 @@ let windowWidth = $(window).width();
  */
 
 const handleSearchHero = function () {
-    $('#inputSearch').keyup(function () {
-        let inputSearch = $(this),
-            wrapInputSearch = inputSearch.parent('#form-wrap');
+	$('#inputSearch').keyup(function () {
+		let inputSearch = $(this),
+			wrapInputSearch = inputSearch.parent('#form-wrap');
 
-        (inputSearch.val() !== '') ? wrapInputSearch.addClass('is-result') : wrapInputSearch.removeClass('is-result');
-    });
+		(inputSearch.val() !== '') ? wrapInputSearch.addClass('is-result') : wrapInputSearch.removeClass('is-result');
+	});
 };
 
+const handleToggleFavorite = function () {
+	$('.button-favorite').click(function () {
+		$(this).toggleClass('active');
+	});
+}
+
 $(document).ready(function () {
-    handleSearchHero();
+	handleSearchHero();
+	handleToggleFavorite();
 });
