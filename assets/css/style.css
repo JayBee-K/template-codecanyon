@@ -2,6 +2,10 @@
     opacity: .3;
 }
 
+.mt-48 {
+    margin-top: 48px;
+}
+
 @media screen and (min-width: 1200px) {
     .container {
         max-width: 1320px;
@@ -506,6 +510,16 @@
     line-height: 1.5;
 }
 
+@media screen and (max-width: 991px) {
+    .section-heading .section-heading_title {
+        font-size: 1.8em;
+    }
+
+    .section-heading .section-heading_desc {
+        font-size: 1.15em;
+    }
+}
+
 .section-hero .hero-search {
     position: relative;
     display: flex;
@@ -657,7 +671,7 @@
     }
 
     .section-hero .hero-search .search-info .info-title {
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
 
     .section-hero .hero-search .search-info .info-desc {
@@ -794,11 +808,11 @@
     }
 
     .category-card .card-header .category-title .title-link {
-        font-size: 1.6em;
+        font-size: 1.8em;
     }
 
     .category-card .card-header .category-desc,
-    .category-card .card-header .category-link{
+    .category-card .card-header .category-link {
         font-size: 1.05em;
     }
 }
@@ -1005,6 +1019,19 @@
     margin-left: 8px;
 }
 
+.section-tab .tab-mobile {
+    margin: 0 -8px 30px;
+}
+
+.section-tab .tab-mobile .tab-mobile_select {
+    padding: 8px;
+    border: 2px solid rgb(var(--primary-color)) !important;
+    width: 100%;
+    color: #666;
+    background: var(--white);
+    font-size: 14px;
+}
+
 .section-tab .nav-tabs {
     border-bottom: 0;
     margin: 0 -8px 30px;
@@ -1056,15 +1083,6 @@
     overflow: hidden;
     border: 0;
     background-color: var(--white)
-}
-
-.product-item .card-header .card-header_image {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: linear-gradient(270deg, #ccc, #e6e6e6);
 }
 
 .product-item .card-header .card-header_image {
@@ -1369,6 +1387,13 @@
 .product-item:hover .card-header .card-header_gradient .card-header_gradient__inner .gradient-inner_buttons {
     opacity: 1;
     pointer-events: auto;
+}
+
+@media screen and (max-width: 767px) {
+    .section-product_inner .row {
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
 }
 
 .section-product_button {
