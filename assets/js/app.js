@@ -1,37 +1,71 @@
-let windowWidth = $(window).width();
+let windowWidth = $(window).outerWidth();
+
+/*******
+ * Handle Navigation
+ */
+const handleTouchMoveNavigation = function (ev) {
+	if (!$(ev.target).closest('.body-open_navigation #header-navigation').length) {
+		ev.preventDefault();
+	}
+}
+
+const handleInitNavigationMobile = function () {
+	if (windowWidth < 992) {
+		$('#header-navigation > .header-nav_list > li > .header-nav_list__child').map(function (index) {
+			let htmlSpan = `<span data-toggle="collapse" data-target="#header-navigation_sub__${index}" class="header-nav_list__link-icon"><i class="fas fa-caret-down"></i></span>`;
+			$(this).prev('.header-nav_list__link').append(htmlSpan);
+			$(this).attr({
+				"id": "header-navigation_sub__" + index,
+				"class": "header-nav_list__child collapse list-unstyled mb-0",
+				"data-parent": "#header-navigation"
+			});
+		});
+
+		$('#hamburger-toggle').click(function () {
+			$('body').addClass('body-open_navigation');
+			document.addEventListener('touchmove', handleTouchMoveNavigation, {passive: false});
+		});
+
+		$(document).on('click', '#close-navigation, #header-overlay', function () {
+			$('body').removeClass('body-open_navigation');
+			document.removeEventListener('touchmove', handleTouchMoveNavigation);
+			$('#header .collapse').collapse('hide');
+		});
+	}
+}
 
 /*******
  * Handle Search Hero
  */
 const handleSearchHero = function () {
-    $('#inputSearch').keyup(function () {
-        let inputSearch = $(this),
-            wrapInputSearch = inputSearch.parent('#form-wrap');
+	$('#inputSearch').keyup(function () {
+		let inputSearch = $(this),
+			wrapInputSearch = inputSearch.parent('#form-wrap');
 
-        (inputSearch.val() !== '') ? wrapInputSearch.addClass('is-result') : wrapInputSearch.removeClass('is-result');
-    });
+		(inputSearch.val() !== '') ? wrapInputSearch.addClass('is-result') : wrapInputSearch.removeClass('is-result');
+	});
 };
 
 /*******
  * Handle Toggle Favorite
  */
 const handleToggleFavorite = function () {
-    $('.button-favorite').click(function () {
-        $(this).toggleClass('active');
-    });
+	$('.button-favorite').click(function () {
+		$(this).toggleClass('active');
+	});
 }
 /*******
  * Handle Toggle Collection
  */
 const handleToggleCollection = function () {
-    $('.button-collection').click(function () {
-        let modalCollection = $('#modalCollection'),
-            modalLoading_HTML = `<div class="modal-loading">
+	$('.button-collection').click(function () {
+		let modalCollection = $('#modalCollection'),
+			modalLoading_HTML = `<div class="modal-loading">
 									<svg viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
 									  <circle fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30"></circle>
 									</svg>
 								</div>`,
-            modalContent_HTML = `<div class="modal-body_head">
+			modalContent_HTML = `<div class="modal-body_head">
 									<div class="modal-body_title">
 										Add this Item to a Collection
 									</div>
@@ -127,60 +161,61 @@ const handleToggleCollection = function () {
 										<a href="" class="theme-button theme-button_sm button-primary">Great, I'm done</a>
 									</div>
 								</div>`;
-        modalCollection.find('.modal-body').html(modalLoading_HTML);
-        modalCollection.modal('show');
+		modalCollection.find('.modal-body').html(modalLoading_HTML);
+		modalCollection.modal('show');
 
-        setTimeout(function () {
-            modalCollection.find('.modal-body').html(modalContent_HTML);
-            handleInputAddCollection();
-            handleButtonCollection();
-        }, 500);
+		setTimeout(function () {
+			modalCollection.find('.modal-body').html(modalContent_HTML);
+			handleInputAddCollection();
+			handleButtonCollection();
+		}, 500);
 
-    });
+	});
 };
 /*******
  * Handle Input Add Collection
  */
 const handleInputAddCollection = function () {
-    $('#inputAddCollection').click(function () {
-        if ($('#modal-body_form__inner').is(':hidden')) {
-            toggleShowHide();
-        }
-    });
+	$('#inputAddCollection').click(function () {
+		if ($('#modal-body_form__inner').is(':hidden')) {
+			toggleShowHide();
+		}
+	});
 
-    $('#closeAddCollection').click(function () {
-        toggleShowHide();
-    });
+	$('#closeAddCollection').click(function () {
+		toggleShowHide();
+	});
 
-    const toggleShowHide = function () {
-        $('#modal-body_form__inner').toggle();
-    }
+	const toggleShowHide = function () {
+		$('#modal-body_form__inner').toggle();
+	}
 }
 /*******
  * Handle Button Collection
  */
 const handleButtonCollection = function () {
-    $('.collection-item').click(function () {
-        $(this).toggleClass('no-add');
-    });
+	$('.collection-item').click(function () {
+		$(this).toggleClass('no-add');
+	});
 }
 
 /*******
  * Handle Tab Mobile
  */
 const handleTabMobile = function () {
-    if (windowWidth < 768) {
-        $('#tab-mobile_select').change(function () {
-            let target = $(this).val();
-            $(this).closest('.section-tab').find('.tab-pane').removeClass('show active');
-            $(this).closest('.section-tab').find(`#${target}`).tab('show');
-        });
-    }
+	if (windowWidth < 768) {
+		$('#tab-mobile_select').change(function () {
+			let target = $(this).val();
+			$(this).closest('.section-tab').find('.tab-pane').removeClass('show active');
+			$(this).closest('.section-tab').find(`#${target}`).tab('show');
+		});
+	}
 }
 
 $(document).ready(function () {
-    handleSearchHero();
-    handleToggleFavorite();
-    handleToggleCollection();
-    handleTabMobile();
+	handleInitNavigationMobile();
+	handleSearchHero();
+	handleToggleFavorite();
+	handleToggleCollection();
+	handleTabMobile();
 });
