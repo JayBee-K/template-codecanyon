@@ -15,6 +15,7 @@
 .header {
     position: relative;
     z-index: 3;
+    border-bottom: 1px solid #e1e8ed;
 }
 
 .header .header-black {
@@ -383,6 +384,48 @@
 .header .header-bottom .header-nav .header-nav_list > li > .header-nav_list__link.active:after {
     opacity: 1;
     visibility: visible;
+}
+
+.header .header-main .header-nav .header-nav_list > .header-nav_list__item-search {
+    position: relative;
+    padding-left: 15px;
+    margin-left: 15px;
+    border-left: 1px solid #e9e9e9;
+}
+
+.header .header-main .header-nav .header-nav_list > .header-nav_list__item-search form {
+    display: flex;
+    align-items: center;
+    position: relative;
+    width: 160px;
+}
+
+.header .header-main .header-nav .header-nav_list > .header-nav_list__item-search form > input {
+    height: 34px;
+    background-color: #fff;
+    border-radius: 8px;
+    padding: 6px 30px 6px 10px;
+    border: 1px solid #e9e9e9;
+    width: 100%;
+    font-size: .925em;
+    line-height: 34px;
+}
+
+.header .header-main .header-nav .header-nav_list > .header-nav_list__item-search form > input::placeholder {
+    opacity: .5;
+}
+
+.header .header-main .header-nav .header-nav_list > .header-nav_list__item-search form button {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 5px;
+    background: transparent;
+    border: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: .8;
 }
 
 .header .header-bottom .header-logo {
@@ -1996,4 +2039,117 @@
     filter: brightness(120%) hue-rotate(10deg);
     -webkit-transform: translateY(-6px);
     transform: translateY(-6px);
+}
+
+.section-breadcrumb .breadcrumb {
+    padding: 0;
+    margin-bottom: 0;
+    background: transparent;
+    color: #666;
+    font-size: .9em;
+}
+
+.section-breadcrumb .breadcrumb .breadcrumb-item > a {
+    color: #666;
+    position: relative;
+}
+
+.section-breadcrumb .breadcrumb .breadcrumb-item > a:hover {
+    color: rgb(var(--dark-color));
+}
+
+.section-breadcrumb .breadcrumb .breadcrumb-item + .breadcrumb-item::before {
+    content: "\f105";
+    font-family: "Font Awesome 5 Pro";
+    font-weight: 900;
+    position: relative;
+    top: 1px;
+    opacity: .6;
+}
+
+.page-detail .page-detail_header {
+    padding: 8px 0 0;
+    background: #fafafa;
+    border-bottom: 1px solid #e1e8ed;
+}
+
+.page-detail .page-detail_header .section-info {
+    margin-top: 10px;
+}
+
+.page-detail .page-detail_header .section-info .section-info_name {
+    margin-bottom: 10px;
+}
+
+.page-detail .page-detail_header .section-info .section-info_name h1 {
+    margin-bottom: 0;
+    font-size: 2.2em;
+    font-weight: 700;
+    color: rgb(var(--dark-color));
+}
+
+.page-detail .page-detail_header .section-info .section-info_meta {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.1em;
+}
+
+.page-detail .page-detail_header .section-info .section-info_meta .section-info_meta__sale {
+    margin-left: 20px;
+}
+
+.page-detail .page-detail_header .section-info .section-info_meta .section-info_meta__sale svg {
+    fill: rgb(var(--dark-color));
+    height: 16px;
+    width: 16px;
+    margin-right: 3px;
+}
+
+.page-detail .page-detail_header .section-info .section-info_meta .section-info_meta__sale b {
+    color: #666;
+}
+
+.page-detail .page-detail_header .section-tab {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-top: 10px;
+}
+
+.page-detail .page-detail_header .section-tab > a {
+    color: #454545;
+    padding: 0 11px;
+    line-height: 36px;
+    margin-bottom: 1px;
+    height: 36px;
+    font-size: .9em;
+    border: 1px solid transparent;
+}
+
+.page-detail .page-detail_header .section-tab > a.active {
+    background-color: var(--white);
+    border-color: #e1e8ed;
+    border-bottom-color: var(--white);
+    font-weight: 600;
+}
+
+.page-detail .page-detail_header .section-tab > a:hover {
+    background-color: #ececec;
+}
+
+.page-detail .page-detail_header .section-tab > a span {
+    display: inline-block;
+    background-color: rgb(var(--primary-color));
+    color: var(--white);
+    font-weight: 600;
+    line-height: 1;
+    font-size: .9em;
+    padding: 2px 2px 3px;
+    border-radius: 2px;
+    margin-left: 5px;
+}
+
+.page-detail .page-detail_header .section-tab > a + a {
+    margin-left: 2px;
 }
