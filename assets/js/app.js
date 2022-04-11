@@ -212,10 +212,20 @@ const handleTabMobile = function () {
 	}
 }
 
+/*******
+ * Handle Box Toggle Table
+ */
+const handleBoxToggleTable = function () {
+	$('#box-toggle_table').click(function () {
+		$(this).parents('.sidebar-box_table').toggleClass('is-collapse');
+	});
+}
+
 $(document).ready(function () {
 	handleInitNavigationMobile();
 	handleSearchHero();
 	handleToggleFavorite();
 	handleToggleCollection();
 	handleTabMobile();
+	handleBoxToggleTable();
 });

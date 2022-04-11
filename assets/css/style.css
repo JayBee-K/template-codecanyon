@@ -2235,5 +2235,91 @@
 }
 
 .page-detail .page-detail_sidebar .sidebar-box .sidebar-box_media .sidebar-box_media__list .media-list_title > a:hover {
-    color: rgba(var(--dark-color), .7);
+    color: rgba(var(--dark-color), .8);
+}
+
+.page-detail .page-detail_sidebar .sidebar-box .sidebar-box_media .sidebar-box_media__list ul {
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 15px;
+}
+
+.page-detail .page-detail_sidebar .sidebar-box .sidebar-box_media .sidebar-box_media__list ul li {
+    margin: 4px;
+    width: calc(100% / 6 - 8px);
+}
+
+.page-detail .page-detail_sidebar .sidebar-box .sidebar-box_media .sidebar-box_media__list ul li img {
+    display: inline-block;
+    width: 100%;
+    max-height: 30px;
+    max-width: 100%;
+}
+
+.page-detail .page-detail_sidebar .sidebar-box table {
+    margin-bottom: 35px;
+}
+
+.page-detail .page-detail_sidebar .sidebar-box table tr td {
+    font-size: 1em;
+    padding-bottom: 15px;
+    vertical-align: top;
+}
+
+.page-detail .page-detail_sidebar .sidebar-box table tr td.name {
+    padding-right: 15px;
+    width: 140px;
+    color: rgb(var(--dark-color));
+    font-weight: 700;
+}
+
+.page-detail .page-detail_sidebar .sidebar-box table tr td a {
+    display: inline-block;
+}
+
+.page-detail .page-detail_sidebar .sidebar-box table tr td a:hover {
+    text-decoration: underline;
+}
+
+.page-detail .sidebar-box_table {
+    overflow: hidden;
+    position: relative;
+    height: 102px;
+    flex-direction: column !important;
+}
+
+.page-detail .sidebar-box_table .sidebar-box_toggle {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding-bottom: 4px;
+    z-index: 1;
+    background: #fafafa;
+}
+
+.page-detail .sidebar-box_table .sidebar-box_toggle > a {
+    display: block;
+    padding: 5px;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    font-size: 1.2em;
+    font-weight: 700;
+    text-align: center;
+}
+
+.page-detail .sidebar-box_table .sidebar-box_toggle > a span:last-child {
+    display: none;
+}
+
+.page-detail .sidebar-box_table.is-collapse {
+    height: auto;
+}
+
+.page-detail .sidebar-box_table.is-collapse .sidebar-box_toggle > a span:first-child {
+    display: none;
+}
+
+.page-detail .sidebar-box_table.is-collapse .sidebar-box_toggle > a span:last-child {
+    display: block;
 }
