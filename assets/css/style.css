@@ -14,7 +14,7 @@
 
 .header {
     position: relative;
-    z-index: 3;
+    z-index: 10;
     border-bottom: 1px solid #e1e8ed;
 }
 
@@ -3032,4 +3032,39 @@
         margin-top: 0;
         margin-left: 10px;
     }
+}
+
+.page-category {
+    background-color: #fafafa;
+}
+
+.page-category .page-category_header .category-search {
+    padding: 32px 0 0;
+    margin-bottom: 8px;
+}
+
+.page-category .page-category_header .category-search .input-group .form-control {
+    border-radius: 0;
+    border: 2px solid #e6e6e6;
+    border-right: 0;
+    height: 52px;
+    line-height: 52px;
+    font-size: 1.2em;
+}
+
+.page-category .page-category_header .category-search .input-group .form-control::placeholder {
+    opacity: .6;
+}
+
+.page-category .page-category_header .category-search .input-group .input-group-append {
+    margin-left: 0;
+}
+
+.page-category .page-category_header .category-search .input-group .input-group-append button {
+    background-color: rgba(var(--primary-color), 1);
+    border: 0;
+    border-radius: 0;
+    color: var(--white);
+    font-size: 1.25em;
+    min-width: 160px;
 }
