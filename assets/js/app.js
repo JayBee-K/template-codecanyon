@@ -44,18 +44,28 @@ const handleSearchHero = function () {
 
 		(inputSearch.val() !== '') ? wrapInputSearch.addClass('is-result') : wrapInputSearch.removeClass('is-result');
 	});
+
+	$(document).mouseup(function (e) {
+		let elm = $('#form-wrap.is-result');
+		elm.is(e.target) || 0 !== elm.has(e.target).length || (
+			elm.removeClass('is-result'))
+	});
 };
 
 /*******
  * Handle Search Page Category
  */
 const handleSearchPageCategory = function () {
-	$('#inputSearch').keyup(function () {
-		let inputSearch = $(this),
-			wrapInputSearch = inputSearch.parent('#form-wrap');
-
-		(inputSearch.val() !== '') ? wrapInputSearch.addClass('is-result') : wrapInputSearch.removeClass('is-result');
+	$('#inputSearchCategory').click(function () {
+		$('#inputSearchCategory').closest('#form-category').addClass('is-show');
 	});
+
+	$(document).mouseup(function (e) {
+		let elm = $('#form-category.is-show');
+		elm.is(e.target) || 0 !== elm.has(e.target).length || (
+			elm.removeClass('is-show'))
+	});
+
 };
 
 /*******
@@ -251,6 +261,7 @@ const handleToggleContentMobile = function () {
 		$(this).parents('.page-detail_inner').toggleClass('is-collapse');
 	});
 }
+
 /*******
  * Handle Box Toggle Table
  */
@@ -260,13 +271,24 @@ const handleBoxToggleTable = function () {
 	});
 }
 
+/*******
+ * Handle Toggle Sidebar Category
+ */
+const handleToggleSidebarCategory = () => {
+	$('#toggleFilter').click(function () {
+		$(this).toggleClass('is-show_sidebar');
+	});
+}
+
 $(document).ready(function () {
 	handleInitNavigationMobile();
 	handleSearchHero();
+	handleSearchPageCategory();
 	handleToggleFavorite();
 	handleToggleCollection();
 	handleTabMobile();
 	handleBoxToggleTable();
 	handleToggleLicensePrice();
 	handleToggleContentMobile();
+	handleToggleSidebarCategory();
 });
