@@ -2223,6 +2223,11 @@
     font-size: .9em;
 }
 
+.section-breadcrumb.section-breadcrumb_article .breadcrumb {
+    padding-bottom: 15px;
+    padding-top: 7px;
+}
+
 .section-breadcrumb .breadcrumb .breadcrumb-item > a {
     color: #666;
     position: relative;
